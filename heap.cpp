@@ -39,3 +39,29 @@ int decreaseKey(HEAP* heap, int pos, float newKey, ptrVertex V) {
 void movingUp(HEAP* heap, int pos) {
 
 }
+
+int extractMin(HEAP* heap, ptrVertex V) {
+	//VERTEX* minV = (VERTEX*)calloc(1, sizeof(VERTEX));
+	int min;
+	if (heap->size < 1) {
+		cout << "Error: heap empty" << endl;
+		return 0;
+	}
+	else {
+		min = heap->H[1]->vertex;
+		heap->H[1]->vertex = heap->H[heap->size]->vertex;
+		//V[heap->H[1]->vertex].pos = 
+		heap->H[1]->key = heap->H[heap->size]->key;
+		V[heap->H[1]->vertex].pos = V[heap->H[heap->size]->vertex].pos;
+		//cout << "extracted pos:" << V[heap->H[1]->vertex].pos << endl;
+		heap->size--;
+
+		//cout << "heap called" << endl;
+		minHeapify(heap, 1, V);
+		//heapifycall++;
+		//minV->pos = 0;
+		//minV->
+		//free(V);
+		return min;
+	}
+}
