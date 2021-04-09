@@ -144,3 +144,34 @@ int isComputed(int vertex) {
 	return 0;
 	compCount = 0;
 }
+void readGraph(string file) {
+	ifstream inFile;
+	ptrNode node;
+	ptrNode* A;
+	int n, m, id, u, v, w;
+	inFile.open(file);
+	if (inFile.is_open()) {
+		inFile >> n >> m;
+		//initializeGraph(n);
+		A = (ptrNode*)calloc(n + 1, sizeof(ptrNode));
+		for (int i = 0; i < m; i++) {
+			inFile >> id >> u >> v >> w;
+			node = (ptrNode)malloc(sizeof(NODE));
+			node->v = v;
+			node->w = w;
+			node->next = A[u];
+			A[u] = node;
+			//undirected
+		}
+		/*for (int i = 1; i <= n; i++) {
+			cout << "node " << i << ":" << endl;
+			node = A[i];
+			while (node) {
+				cout << node->v << "," << node->w << endl;
+				node = node->next;
+			}
+		}*/
+		inFile.close();
+	}
+	//dijkstra(n, A, 1, 5);
+}
