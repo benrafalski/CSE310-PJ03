@@ -134,3 +134,13 @@ int dijkstra(int n, ptrNode* A, int s, int t, int flag) {
 void freeVertex() {
 	freeV(V);
 }
+int isComputed(int vertex) {
+	for (int i = 0; i < compCount; i++) {
+		//cout << computed[i] << ",";
+		if (computed[i] == vertex) {
+			return 1;
+		}
+	}
+	return 0;
+	compCount = 0;
+}
