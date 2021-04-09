@@ -83,4 +83,18 @@ int main(int argc, char* argv[]) {
 			//cout << getWeight(d);
 			exit(0);
 			break;
+		case FIND:
+			noFind = 0;
+			cout << "Query: find " << source << " " << dest << " " << flag << endl;
+			//cout << "find command, source = " << source << ", dest = " << dest << ", flag = " << flag << endl;
+			if (source > n || dest == source || flag > 1 || flag < 0) {
+				//cout << source << " " << n << " " << dest << " " << flag << endl;
+				cout << "Error: invalid find query" << endl;
+				noFind = 1;
+				break;
+			}
+			freeVertex();
+			exists = dijkstra(n, A, source, dest, flag);
+			//getComputed();
+			break;
 }
