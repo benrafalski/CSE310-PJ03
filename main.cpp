@@ -131,4 +131,13 @@ int main(int argc, char* argv[]) {
 
 			//cout << "write path command, s = " << s << ", d = " << d << endl;
 			break;
+		case NONE:
+			//cout << endl;
+			break;
+		}
+	}
+
+
+
+	return 0;
 }
