@@ -106,3 +106,17 @@ void minHeapify(HEAP* heap, int i, ptrVertex V) {
 	}
 	//cout << endl;
 }
+void printHeap(HEAP* H) {
+	// prints capacity and size of heap to stdout
+	cout << "capacity=" << H->capacity << ", size=" << H->size << endl;
+	for (int i = 1; i <= H->size; i++) {
+		if (i == (H->size)) {
+			// prints each key value of heap
+			cout << "key[" << H->H[i]->vertex << "]= " << H->H[i]->key << endl;
+		}
+		else {
+			// prints last key value in heap
+			cout << "key[" << H->H[i]->vertex << "]= " << H->H[i]->key << ", " << endl;
+		}
+	}
+}
