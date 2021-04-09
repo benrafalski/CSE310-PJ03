@@ -93,3 +93,17 @@ int takeInput(int* source, int* s, int* d, int* dest, int* flag) {
 
 
 }
+commands current(char c) {
+	commands now = NONE;
+	if (c == 'f') {
+		now = FIND;
+	}
+	if (c == 'p') {
+		now = WRITE;
+	}
+	if (c == 's') {
+		now = STOP;
+	}
+	return now;
+	
+}
