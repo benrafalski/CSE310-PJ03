@@ -175,3 +175,9 @@ void readGraph(string file) {
 	}
 	//dijkstra(n, A, 1, 5);
 }
+float getWeight(int vertex) {
+	return V[vertex].dist;
+}
+int getColor(int vertex) {
+	return V[vertex].color;
+}
