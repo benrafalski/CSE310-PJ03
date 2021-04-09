@@ -1,3 +1,16 @@
+#include <iostream>
+#include <limits>
+
+
+enum color { white, gray, black };
+typedef struct Vertex {
+	int color;
+	int pi;
+	float dist;
+	int pos;
+}VERTEX;
+typedef VERTEX* ptrVertex;
+
 typedef struct Element {
 	int vertex;
 	float key;
