@@ -181,3 +181,32 @@ float getWeight(int vertex) {
 int getColor(int vertex) {
 	return V[vertex].color;
 }
+void getPath(int d, int s) {
+	int pi;
+	pi = V[d].pi;
+	if (d != s) {
+		//cout << d << ",";
+		countPath++;
+		//cout << "count:" << countPath << endl;
+		a[countPath] = d;
+		//cout << a[countPath] << ",";
+		getPath(pi, s);
+	}
+	else {
+		//cout << endl;
+		//cout << "a[1]=" << a[1];
+		for (int i = countPath; i > 0; i--) {
+			if (i == 1) {
+				cout << a[i] << ">";
+			}
+			else {
+				cout << a[i] << ", ";
+			}
+
+		}
+		countPath = 0;
+	}
+
+
+
+}
