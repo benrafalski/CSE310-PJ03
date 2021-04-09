@@ -120,3 +120,15 @@ void printHeap(HEAP* H) {
 		}
 	}
 }
+int getPi(int vertex, VERTEX* V) {
+	return V[vertex].pi;
+}
+VERTEX* getGraph(VERTEX* V) {
+	return V;
+}
+void freeV(VERTEX* V) {
+	free(V);
+}
+void freeE() {
+	free(element);
+}
