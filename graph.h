@@ -20,3 +20,11 @@ typedef struct Node {
 	Node* next;
 }NODE;
 typedef NODE* ptrNode;
+
+int dijkstra(int n, ptrNode* A, int s, int t, int flag);
+void readGraph(string file);
+float getWeight(int vertex);
+void getPath(int d, int s);
+int getColor(int vertex);
+int isComputed(int vertex);
+void freeVertex();
