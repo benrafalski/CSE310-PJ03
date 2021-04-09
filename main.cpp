@@ -65,4 +65,22 @@ int main(int argc, char* argv[]) {
 		//dijkstra(n, A, 1, 9);
 	}
 	//readGraph(filename);
+	while (1) {
+		c = takeInput(&source, &s, &d, &dest, &flag);
+		command = current(c);
+		switch (command) {
+		case STOP:
+			cout << "Query: stop" << endl;
+			//cout << A[n];
+			//free(A);
+			for (int i = 0; i < n; i++) {
+				free(A[i]);
+			}
+			//cout << A[n+1];
+			free(node);
+			//cout << getWeight(d);
+			freeVertex();
+			//cout << getWeight(d);
+			exit(0);
+			break;
 }
