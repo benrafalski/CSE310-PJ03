@@ -97,4 +97,38 @@ int main(int argc, char* argv[]) {
 			exists = dijkstra(n, A, source, dest, flag);
 			//getComputed();
 			break;
+		case WRITE:
+			cout << "Query: write path " << s << " " << d << endl;
+			if (noFind == 1) {
+				cout << "Error: no path computation done" << endl;
+				break;
+			}
+			if (s != source || d > n) {
+				cout << "Error: invalid source destination pair" << endl;
+				break;
+			}
+			weight = getWeight(d);
+			//cout << weight;
+			//cout << isComputed(d) << endl;
+			if (isComputed(d) == 0 && exists == 0) {
+				cout << "No " << s << "-" << d << " path has been computed." << endl;
+				break;
+			}
+			if (weight > 100000) {
+				cout << "No " << s << "-" << d << " path exists." << endl;
+				break;
+			}
+			//cout << "color d: " << getColor(d) << endl;
+			if (getColor(d) == gray) {
+				cout << "Path not known to be shortest: <" << s << ", ";
+			}if (getColor(d) == black) {
+				cout << "Shortest path: <" << s << ", ";
+			}
+			//cout << "Shortest path: <" << s << ", ";
+			getPath(d, s);
+			cout << endl;
+			printf("The path weight is: %12.4f\n", weight);
+
+			//cout << "write path command, s = " << s << ", d = " << d << endl;
+			break;
 }
