@@ -17,7 +17,24 @@ int takeInput(int* source, int* s, int* d, int* dest, int* flag) {
 			
 		}
 		if (input.compare("find") == 0) {
-		
+			getline(cin, catchMe, '\n');
+			//cout << catchMe;
+
+			string delim = " ";
+			catchMe += delim;
+			size_t pos = 0;
+			std::string::size_type sz;
+			//cout << catchMe
+			string token;
+			while ((pos = catchMe.find(delim)) != std::string::npos) {
+				token = catchMe.substr(0, pos);
+				a[i] = token;
+				//std::cout << a[i] << std::endl;
+				catchMe.erase(0, pos + delim.length());
+				i++;
+			}
+			
+			//cout << a[1] << endl;
 			*source = stoi(a[1], &sz);
 			*dest = stoi(a[2], &sz);
 			//cout << "source:" << *source << endl;
