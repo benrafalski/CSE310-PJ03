@@ -77,3 +77,32 @@ void insert(HEAP* heap, float key, int value, ptrVertex V) {
 	decreaseKey(heap, i + 1, key, V);
 	//printHeap(heap);
 }
+void minHeapify(HEAP* heap, int i, ptrVertex V) {
+	int l = left(i);
+	int r = right(i);
+	//cout << l+1 << ", " << r+1 << endl;
+	int smallest, temp;
+	if ((l <= heap->size) && (heap->H[l]->key < heap->H[i]->key)) {
+		smallest = l;
+		//cout << "smallest = " << smallest+1 << endl;
+	}
+	else {
+		smallest = i;
+		//cout << "smallest = " << smallest+1 << endl;
+	}
+	if ((r <= heap->size) && (heap->H[r]->key < heap->H[smallest]->key)) {
+		smallest = r;
+		//cout << "smallest = " << smallest+1 << endl;
+	}
+	if (smallest != i) {
+		temp = heap->H[i]->key;
+		heap->H[i]->key = heap->H[smallest]->key;
+		heap->H[smallest]->key = temp;
+		V[heap->H[i]->vertex].pos = smallest;
+		V[heap->H[smallest]->vertex].pos = i;
+		minHeapify(heap, smallest, V);
+		//cout << "if heapify call" << endl;
+		//heapifycall++;
+	}
+	//cout << endl;
+}
