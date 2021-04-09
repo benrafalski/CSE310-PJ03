@@ -131,3 +131,6 @@ int dijkstra(int n, ptrNode* A, int s, int t, int flag) {
 	//freeE();
 	return 1;
 }
+void freeVertex() {
+	freeV(V);
+}
