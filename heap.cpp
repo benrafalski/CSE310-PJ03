@@ -65,3 +65,15 @@ int extractMin(HEAP* heap, ptrVertex V) {
 		return min;
 	}
 }
+void insert(HEAP* heap, float key, int value, ptrVertex V) {
+	element = (ptrElement)malloc(sizeof(ELEMENT));
+	element->vertex = value;
+	element->key = key;
+	heap->size++;
+	heap->H[heap->size] = element;
+	//free(element);
+	int i = heap->size - 1;
+	//heap->H[i]->key = std::numeric_limits<int>::max();
+	decreaseKey(heap, i + 1, key, V);
+	//printHeap(heap);
+}
